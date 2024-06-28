@@ -14,7 +14,47 @@
   -webkit-box-shadow: rgba(17, 17, 17, 0.2) 0px 8px 24px;
 }
 .profile .photo {
-  width: 60px;
-  height: 60px;
-  border-radius: 100%;
+  position: relative;
+}
+/* Version 1 */
+.profile .photo img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+}
+.profile .photo.new::after {
+  content: 'New';
+  padding: 4px 6px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  text-align: center;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  color: #ffffff;
+  background-color: #289260;
+  z-index: 9;
+  font-size: 14px;
+}
+/* Version 2 */
+.profile .profileImg {
+  position: relative;
+}
+.profile .profileImg img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+}
+.profile .profileImg .badge {
+  padding: 4px 6px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  text-align: center;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  color: #ffffff;
+  background-color: #289260;
+  z-index: 9;
+  font-size: 14px;
 }
