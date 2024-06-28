@@ -13,10 +13,10 @@
   box-shadow: rgba(17, 17, 17, 0.2) 0px 8px 24px;
   -webkit-box-shadow: rgba(17, 17, 17, 0.2) 0px 8px 24px;
 }
+/* Version 1 */
 .profile .photo {
   position: relative;
 }
-/* Version 1 */
 .profile .photo img {
   width: 72px;
   height: 72px;
@@ -37,15 +37,15 @@
   font-size: 14px;
 }
 /* Version 2 */
-.profile .profileImg {
+.avatar {
   position: relative;
 }
-.profile .profileImg img {
+.avatar .imgBox img {
   width: 72px;
   height: 72px;
   border-radius: 50%;
 }
-.profile .profileImg .badge {
+.avatar .imgBox .badge {
   padding: 4px 6px;
   box-sizing: border-box;
   border-radius: 12px;

@@ -1,4 +1,5 @@
 import React from 'react';
+import Avatar from './Avatar';
 
 // export default function Profile({ image, name, position, new: isNew = 0 }) {
 //   return (
@@ -12,13 +13,10 @@ import React from 'react';
 //   );
 // }
 
-export default function Profile({ image, name, position, isNew = false }) {
+export default function Profile({ image, isNew, name, position }) {
   return (
     <div className='profile'>
-      <div className='profileImg'>
-        <img src={image} alt='profile' />
-        {isNew && <span className='badge'>New</span>}
-      </div>
+      <Avatar image={image} isNew={isNew} />
       <h1>{name}</h1>
       <p>{position}</p>
     </div>
