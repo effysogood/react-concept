@@ -1,9 +1,9 @@
-import AppProfile from './AppProfile';
+import AppCounter from './AppCounter';
 
 function App() {
   return (
     <>
-      <AppProfile />
+      <AppCounter />
     </>
   );
 }

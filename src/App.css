@@ -1,3 +1,8 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .profile {
   padding: 1rem;
   box-sizing: border-box;
@@ -13,7 +18,7 @@
   box-shadow: rgba(17, 17, 17, 0.2) 0px 8px 24px;
   -webkit-box-shadow: rgba(17, 17, 17, 0.2) 0px 8px 24px;
 }
-/* Version 1 */
+/* Profile Ver.1 */
 .profile .photo {
   position: relative;
 }
@@ -36,7 +41,7 @@
   z-index: 9;
   font-size: 14px;
 }
-/* Version 2 */
+/* Profile Ver.2 */
 .avatar {
   position: relative;
 }
@@ -57,4 +62,49 @@
   background-color: #289260;
   z-index: 9;
   font-size: 14px;
+}
+/* Counter */
+.banner {
+  width: auto;
+  margin: 2rem 2rem 0 2rem;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  text-align: center;
+  border-radius: 6px;
+  background-color: #289260;
+  color: white;
+  font-size: 20px;
+}
+.counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 6px;
+  border: solid 1px #289260;
+  padding: 1rem;
+  margin: 2rem;
+  transition: all 0.2s ease-out;
+}
+.counter:hover {
+  background-color: rgba(178, 252, 190, 0.1);
+}
+.counter .number {
+  font-size: 4rem;
+}
+.counter .button {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: none;
+  background-color: #289260;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+.counter .button:hover {
+  color: #289260;
+  background-color: white;
+  box-shadow: rgba(17, 17, 17, 0.2) 0px 8px 24px;
+  -webkit-box-shadow: rgba(17, 17, 17, 0.2) 0px 8px 24px;
 }
