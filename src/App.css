@@ -1,110 +1,88 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.orange {
+  color: orange;
 }
+
 .profile {
+  width: 300px;
+  text-align: center;
   padding: 1rem;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  border-radius: 6px;
-  margin-bottom: 1.6rem;
-  text-align: center;
-  background-color: #eeeeee;
-  box-shadow: rgba(17, 17, 17, 0.2) 0px 8px 24px;
-  -webkit-box-shadow: rgba(17, 17, 17, 0.2) 0px 8px 24px;
+  background-color: #ebebeb;
+  border-radius: 20px;
+  box-shadow: 7px 5px 23px -9px rgba(0, 0, 0, 0.75);
+  margin-bottom: 1rem;
+  -webkit-box-shadow: 7px 5px 23px -9px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 7px 5px 23px -9px rgba(0, 0, 0, 0.75);
 }
-/* Profile Ver.1 */
-.profile .photo {
-  position: relative;
+
+.photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
 }
-.profile .photo img {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-}
-.profile .photo.new::after {
-  content: 'New';
-  padding: 4px 6px;
-  box-sizing: border-box;
-  border-radius: 12px;
-  text-align: center;
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  color: #ffffff;
-  background-color: #289260;
-  z-index: 9;
-  font-size: 14px;
-}
-/* Profile Ver.2 */
+
 .avatar {
   position: relative;
+  width: 200px;
+  height: 200px;
+  margin: auto;
 }
-.avatar .imgBox img {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-}
-.avatar .imgBox .badge {
-  padding: 4px 6px;
-  box-sizing: border-box;
-  border-radius: 12px;
-  text-align: center;
+
+.new {
   position: absolute;
-  top: -8px;
-  right: -8px;
-  color: #ffffff;
-  background-color: #289260;
-  z-index: 9;
-  font-size: 14px;
+  left: 70%;
+  top: 10%;
+  background-color: aquamarine;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
 }
-/* Counter */
+
+.container {
+  width: 500px;
+  margin: auto;
+}
+
 .banner {
-  width: auto;
-  margin: 2rem 2rem 0 2rem;
-  box-sizing: border-box;
-  padding: 8px 12px;
   text-align: center;
-  border-radius: 6px;
-  background-color: #289260;
-  color: white;
-  font-size: 20px;
+  margin-top: 5rem;
+  font-size: 2rem;
+  background-color: gold;
+  font-weight: bold;
 }
+
 .counter {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 6px;
-  border: solid 1px #289260;
-  padding: 1rem;
   margin: 2rem;
-  transition: all 0.2s ease-out;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 2px solid rgb(215, 127, 12);
 }
+
 .counter:hover {
-  background-color: rgba(178, 252, 190, 0.1);
+  background-color: rgb(246, 243, 197);
 }
-.counter .number {
-  font-size: 4rem;
+
+.number {
+  font-size: 7rem;
 }
-.counter .button {
-  padding: 8px 12px;
-  border-radius: 4px;
-  border: none;
-  background-color: #289260;
-  color: white;
-  font-size: 1.2rem;
-  font-weight: 700;
+
+.button {
+  font-size: 2rem;
+  padding: 0.2rem 1rem;
+  border-radius: 0.5rem;
   cursor: pointer;
-  transition: all 0.2s ease-out;
+  background: rgb(215, 127, 12);
+  background: linear-gradient(
+    90deg,
+    rgba(215, 127, 12, 1) 0%,
+    rgba(253, 220, 29, 1) 100%
+  );
 }
-.counter .button:hover {
-  color: #289260;
-  background-color: white;
-  box-shadow: rgba(17, 17, 17, 0.2) 0px 8px 24px;
-  -webkit-box-shadow: rgba(17, 17, 17, 0.2) 0px 8px 24px;
+
+.total {
+  font-size: 1rem;
+  margin-left: -1.5rem;
 }
