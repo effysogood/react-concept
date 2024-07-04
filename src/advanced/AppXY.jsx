@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import './AppXY.css';
 
 export default function AppXY() {
   const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
