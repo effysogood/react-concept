@@ -15,6 +15,42 @@ export default function AppMentors() {
       },
     ],
   });
+  const handleEdit = () => {
+    const prev = prompt(`Which mentor's name you want to change?`);
+    const current = prompt('Write the name you want to rename');
+
+    setPerson((person) => ({
+      ...person,
+      mentors: person.mentors.map((mentor) => {
+        return mentor.name === prev ? { ...mentor, name: current } : mentor;
+      }),
+    }));
+  };
+  const handleAdd = () => {
+    const name = prompt(`Write a mentor's name`);
+    const title = prompt(`Write a mentor's title`);
+
+    setPerson((prev) => ({
+      ...prev,
+      mentors: [...prev.mentors, { name, title }],
+    }));
+  };
+  const handleDeletePerson = (index) => {
+    const updatedMentors = [...person.mentors];
+    updatedMentors.splice(index, 1);
+    setPerson((prev) => ({
+      ...prev,
+      mentors: updatedMentors,
+    }));
+  };
+  const handleDelete = () => {
+    const name = prompt(`Which mentor would you like to delete?`);
+
+    setPerson((prev) => ({
+      ...prev,
+      mentors: prev.mentors.filter((mentor) => mentor.name !== name),
+    }));
+  };
   return (
     <>
       <h1>
@@ -25,57 +61,13 @@ export default function AppMentors() {
         {person.mentors.map((mentor) => (
           <li>
             {mentor.name}({mentor.title})
-            <button
-              onClick={(index) => {
-                const updatedMentors = [...person.mentors];
-                updatedMentors.splice(index, 1);
-                setPerson((prev) => ({
-                  ...prev,
-                  mentors: updatedMentors,
-                }));
-              }}
-            >
-              Delete Mentor
-            </button>
+            <button onClick={handleDeletePerson}>Delete Mentor</button>
           </li>
         ))}
       </ul>
-      <button
-        onClick={() => {
-          const prev = prompt(`Which mentor's name you want to change?`);
-          const current = prompt('Write the name you want to rename');
-
-          setPerson((person) => ({
-            ...person,
-            // mentors: person.mentors.map((mentor) => {
-            //   if (mentor.name === prev) {
-            //     return { ...mentor, name: current };
-            //   }
-            //   return mentor;
-            // }),
-            mentors: person.mentors.map((mentor) => {
-              return mentor.name === prev
-                ? { ...mentor, name: current }
-                : mentor;
-            }),
-          }));
-        }}
-      >
-        Change the mentor's name
-      </button>
-      <button
-        onClick={() => {
-          const name = prompt(`Write a mentor's name`);
-          const title = prompt(`Write a mentor's title`);
-
-          setPerson((prev) => ({
-            ...prev,
-            mentors: [...prev.mentors, { name, title }],
-          }));
-        }}
-      >
-        Add Mentor
-      </button>
+      <button onClick={handleEdit}>Change the mentor's name</button>
+      <button onClick={handleAdd}>Add Mentor</button>
+      <button onClick={handleDelete}>Delete Mentor</button>
     </>
   );
 }
