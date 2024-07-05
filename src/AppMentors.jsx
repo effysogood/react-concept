@@ -25,6 +25,18 @@ export default function AppMentors() {
         {person.mentors.map((mentor) => (
           <li>
             {mentor.name}({mentor.title})
+            <button
+              onClick={(index) => {
+                const updatedMentors = [...person.mentors];
+                updatedMentors.splice(index, 1);
+                setPerson((prev) => ({
+                  ...prev,
+                  mentors: updatedMentors,
+                }));
+              }}
+            >
+              Delete Mentor
+            </button>
           </li>
         ))}
       </ul>
@@ -50,6 +62,19 @@ export default function AppMentors() {
         }}
       >
         Change the mentor's name
+      </button>
+      <button
+        onClick={() => {
+          const name = prompt(`Write a mentor's name`);
+          const title = prompt(`Write a mentor's title`);
+
+          setPerson((prev) => ({
+            ...prev,
+            mentors: [...prev.mentors, { name, title }],
+          }));
+        }}
+      >
+        Add Mentor
       </button>
     </>
   );
