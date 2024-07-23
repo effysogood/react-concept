@@ -3,17 +3,32 @@ import React, { useEffect, useState } from 'react';
 export default function Products() {
   const [products, setProducts] = useState([]);
   const [checked, setChecked] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const handleChecked = () => {
     setChecked((checked) => !checked);
   };
 
   useEffect(() => {
+    setIsLoading(true); // fetch 시작 전, loading 상태
+    setError(null); // 새로운 fetch 요청 시 에러 상태 초기화
     fetch(`data/${checked ? 'sale_' : ''}products.json`)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json();
+      })
       .then((data) => {
         console.log('🔥 Fetch data succeed');
         setProducts(data);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.error(`Fetch failed: ${err}`);
+        setError(err);
+        setIsLoading(false);
       });
     return () => {
       console.log('🧼 Do things that cleaned up');
@@ -26,9 +41,17 @@ export default function Products() {
   처음 컴포넌트가 생성되었을 때 네트워크 통신 한번만 요청되도록 useEffect
   */
 
+  if (isLoading) return <p>isLoading</p>;
+  if (error) return <p>Somthing is wrong. {error.message}</p>;
+
   return (
     <>
-      <input type='checkbox' id='checkbox' onClick={handleChecked} />
+      <input
+        type='checkbox'
+        id='checkBox'
+        onChange={handleChecked}
+        checked={checked}
+      />
       <label htmlFor='checkBox'>Show Only Sale Item 🏷️</label>
       <ul>
         {products.map((product) => (
