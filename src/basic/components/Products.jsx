@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 export default function Products() {
   const [products, setProducts] = useState([]);
   const [checked, setChecked] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const handleChecked = () => {
@@ -11,7 +11,7 @@ export default function Products() {
   };
 
   useEffect(() => {
-    setIsLoading(true); // fetch 시작 전, loading 상태
+    setLoading(true); // fetch 시작 전, loading 상태
     setError(null); // 새로운 fetch 요청 시 에러 상태 초기화
     fetch(`data/${checked ? 'sale_' : ''}products.json`)
       .then((res) => {
@@ -23,13 +23,13 @@ export default function Products() {
       .then((data) => {
         console.log('🔥 Fetch data succeed');
         setProducts(data);
-        setIsLoading(false);
       })
       .catch((err) => {
         console.error(`Fetch failed: ${err}`);
         setError(err);
-        setIsLoading(false);
-      });
+      })
+      .finally(() => setLoading(false));
+
     return () => {
       console.log('🧼 Do things that cleaned up');
     };
@@ -41,7 +41,7 @@ export default function Products() {
   처음 컴포넌트가 생성되었을 때 네트워크 통신 한번만 요청되도록 useEffect
   */
 
-  if (isLoading) return <p>isLoading</p>;
+  if (loading) return <p>Loading</p>;
   if (error) return <p>Somthing is wrong. {error.message}</p>;
 
   return (
