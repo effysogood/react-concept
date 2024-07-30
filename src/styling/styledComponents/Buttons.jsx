@@ -28,3 +28,5 @@ export default function Buttons() {
     </Container>
   );
 }
+
+// 스타일링이 된 컴포넌트를 불러와 사용
