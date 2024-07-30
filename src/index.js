@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import PostCss from './styling/postCss/Buttons';
+import StyledComponents from './styling/styledComponents/Buttons';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <PostCss />
+    <StyledComponents />
   </React.StrictMode>
 );
 
